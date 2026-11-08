@@ -1,0 +1,96 @@
+{
+  "entities": {
+    "WeddingConfig": {
+      "title": "WeddingConfig",
+      "description": "Configuration and content for the wedding invitation managed via the hidden admin dashboard",
+      "type": "object",
+      "properties": {
+        "theme": {
+          "type": "string",
+          "enum": ["jawa", "sunda", "minang", "casual", "islamic"],
+          "description": "Active traditional or modern theme"
+        },
+        "groom": {
+          "type": "object",
+          "description": "Groom detailed information"
+        },
+        "bride": {
+          "type": "object",
+          "description": "Bride detailed information"
+        },
+        "events": {
+          "type": "object",
+          "description": "Akad and Resepsi event details"
+        },
+        "loveStory": {
+          "type": "array",
+          "description": "Timeline milestones of the couple"
+        },
+        "gifts": {
+          "type": "object",
+          "description": "Digital gift and bank accounts info"
+        },
+        "music": {
+          "type": "object",
+          "description": "Music player track and settings"
+        },
+        "adminSettings": {
+          "type": "object",
+          "description": "Admin security PIN and WhatsApp contact settings"
+        },
+        "socialLinks": {
+          "type": "object",
+          "description": "DexxDigital and social media links"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp of last update"
+        }
+      },
+      "required": ["theme", "groom", "bride", "events"]
+    },
+    "RsvpWish": {
+      "title": "RsvpWish",
+      "description": "RSVP confirmation and guestbook prayer wishes from wedding guests",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "maxLength": 100,
+          "description": "Guest name"
+        },
+        "attendance": {
+          "type": "string",
+          "enum": ["hadir", "ragu", "tidak_hadir"],
+          "description": "Attendance status"
+        },
+        "guestCount": {
+          "type": "number",
+          "description": "Number of guests attending"
+        },
+        "message": {
+          "type": "string",
+          "maxLength": 500,
+          "description": "Congratulations or prayer message"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Time when the RSVP was submitted"
+        }
+      },
+      "required": ["name", "attendance", "message"]
+    }
+  },
+  "firestore": {
+    "/configs/wedding": {
+      "schema": "WeddingConfig",
+      "description": "Wedding invitation live editable configuration document"
+    },
+    "/rsvps/{rsvpId}": {
+      "schema": "RsvpWish",
+      "description": "Guest RSVPs and well wishes"
+    }
+  }
+}

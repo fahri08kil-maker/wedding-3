@@ -1,0 +1,6 @@
+{
+  "name": "Luxury 3D Wedding Invitation & CMS",
+  "description": "Website undangan pernikahan digital 3D animasi mewah (Adat Jawa, Sunda, Minang, Casual Modern, Islamic Luxe) dengan dashboard admin cloud tersembunyi dan integrasi RSVP WhatsApp.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
